@@ -3,10 +3,10 @@
 
 #include <stdlib.h>
 #include <stdarg.h>
-#include <stdlib.h>
+#include <unistd.h>
 
 int _printf(const char *format, ...);
-int putc(char c);
+int putch(char c);
 int putss( char *s); 
 
 #endif

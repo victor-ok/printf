@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * putc - writes to stdout
+ * putch - writes to stdout
  *
  * @c: character to be written out
  *
  * Return - 0
 */
 
-int putc(char c)
+int putch(char c)
 {
 	return (write(1, &c, 1));
 }
