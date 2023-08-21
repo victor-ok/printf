@@ -5,7 +5,7 @@
  *
  * @format: format specifier
  *
- * Return - no of bytes
+ * Return: Always 0 (Success)
 */
 
 int _printf(const char *format, ...)
@@ -14,10 +14,9 @@ int _printf(const char *format, ...)
 
 	va_list words;
 
-	if(format == NULL)
+	if (format == NULL)
 
-		return(-1);
-	
+		return (-1);
 	va_start(words, format);
 
 	for (i = 0; format && format[i] != '\0'; i++)
@@ -47,4 +46,3 @@ int _printf(const char *format, ...)
 	va_end(words);
 	return (counter);
 }
-

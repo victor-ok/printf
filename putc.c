@@ -5,7 +5,7 @@
  *
  * @c: character to be written out
  *
- * Return - 0
+ * Return: 0
 */
 
 int putch(char c)
