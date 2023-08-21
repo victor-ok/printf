@@ -10,7 +10,7 @@
 
 int _printf(const char *format, ...)
 {
-	unsigned int i, counter, s_counter = 0;
+	unsigned int i, counter =0, s_counter = 0;
 
 
 	va_list words;

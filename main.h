@@ -8,5 +8,6 @@
 int _printf(const char *format, ...);
 int putch(char c);
 int putss( char *s); 
+int custom_printf(const char *format, ...);
 
 #endif
