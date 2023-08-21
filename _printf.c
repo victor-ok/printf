@@ -18,19 +18,17 @@ int _printf(const char *format, ...)
 	{
 		return (-1);
 	}
-	
-
 	va_start(words, format);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
-			putc(format[i]);
+			putch(format[i]);
 		}
 		else if (format[i] == '%' && format[i + 1] == 'c')
 		{
-			putc(va_arg(words, int));
+			putch(va_arg(words, int));
 			i++;
 		}
 		else if (format[i] == '%' && format[i + 1] == 's')
@@ -41,7 +39,7 @@ int _printf(const char *format, ...)
 		}
 		else if (format[i] == '%' && format[i + 1] == '%')
 		{
-			putc('%');
+			putch('%');
 		}
 		counter++;
 	}

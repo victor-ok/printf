@@ -16,7 +16,7 @@ int putss(char *s)
 	{
 		for (counter = 0; s[counter] != '\0'; counter++)
 		{
-			putc(s[counter]);
+			putch(s[counter]);
 		}
 	}
 	return (counter);
