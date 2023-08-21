@@ -5,13 +5,11 @@
  *
  * @c: character to be written out
  *
- * Return - 0
+ * Return: 0
 */
 
 int putch(char c)
 {
-	
-	return(write(1, &c,1));
-	
+	return (write(1, &c, 1));
 }
 
