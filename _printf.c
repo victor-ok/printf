@@ -12,6 +12,7 @@ int _printf(const char *format, ...)
 {
 	unsigned int i, counter, s_counter = 0;
 
+
 	va_list words;
 
 	if(format == NULL)
@@ -25,7 +26,7 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			putch(format[i]);
-			s_counter++;
+			counter++;
 		}
 		else if (format[i] == '%' && format[i + 1] == 'c')
 		{

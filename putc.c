@@ -8,7 +8,9 @@
  * Return - 0
 */
 
-int putch(char c)
+int putch(char c[], int *index)
 {
-	return (write(1, &c, 1));
+	if(*index > 0)
+		return (write(1, &c, 1));
+	*index = 0;
 }
