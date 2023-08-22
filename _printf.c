@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 
 	va_list words;
 
-	if (format == NULL || format[i] == '% ' || format[i] == ' ')
+	if (format == NULL || (format[i] == '% ' && format[i + 1] == ' ' && !format[i + 2]))
 
 		return (-1);
 
