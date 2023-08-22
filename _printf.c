@@ -1,7 +1,5 @@
 #include "main.h"
-#include <stdlib.h>
-#include <stdarg.h>
-#include <unistd.h>
+
 /**
  * _printf - a function that produces output according to a format.
  *
@@ -9,12 +7,10 @@
  *
  * Return: Always 0 (Success)
 */
-int putch(char c);
-int putss(char *s);
 
 int _printf(const char *format, ...)
 {
-	unsigned int i, counter =0, s_counter = 0;
+	unsigned int i, counter, s_counter = 0;
 
 	va_list words;
 
@@ -27,50 +23,26 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			putchar(format[i]);
-			counter++;
+			putch(format[i]);
+			s_counter++;
 		}
 		else if (format[i] == '%' && format[i + 1] == 'c')
 		{
-			char c = va_arg(words,int);
-			putch(c);
+			putch(va_arg(words, int));
 			i++;
-			counter++;
 		}
 		else if (format[i] == '%' && format[i + 1] == 's')
 		{
-			char *s = va_arg(words,char *);
-			counter += putss(s);
+			s_counter = putss(va_arg(words, char *));
 			i++;
-			
+			counter += (s_counter - 1);
 		}
 		else if (format[i] == '%' && format[i + 1] == '%')
 		{
 			putch('%');
-			i++;
-			counter++;
 		}
+		counter++;
 	}
-
 	va_end(words);
-	return (counter);
-}
-
-int putch(char c)
-{
-	return (write(1, &c, 1));
-}
-
-int putss(char *s)
-{
-	int counter = 0;
-
-	if (s)
-	{
-		for (counter = 0; s[counter] != '\0'; counter++)
-		{
-			putch(s[counter]);
-		}
-	}
 	return (counter);
 }
