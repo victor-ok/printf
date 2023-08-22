@@ -17,6 +17,10 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 
 		return (-1);
+
+	if (format[i] == '\0')
+		return (i);
+
 	va_start(words, format);
 
 	for (i = 0; format && format[i] != '\0'; i++)
