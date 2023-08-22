@@ -5,7 +5,7 @@
  *
  * @s: pointer to the string
  *
- * Return - 0
+ * Return: 0
 */
 
 int putss(char *s)
