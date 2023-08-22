@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			putch(format[i]);
 			s_counter++;
 		}
-		else if (format[i] == ' ' || format[i] == '\0')
+		else if (format[i] == '%' && (format[i + 1] == '\0' || format[i + 1] == ' '))
 		{
 			return (-1);
 		}
