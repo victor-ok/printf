@@ -26,6 +26,10 @@ int _printf(const char *format, ...)
 			putch(format[i]);
 			s_counter++;
 		}
+		else if (format[i] == ' ' || format[i] == '\0')
+		{
+			return (-1);
+		}
 		else if (format[i] == '%' && format[i + 1] == 'c')
 		{
 			putch(va_arg(words, int));
