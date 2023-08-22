@@ -1,5 +1,7 @@
 #include "main.h"
-
+#include <stdlib.h>
+#include <stdarg.h>
+#include <unistd.h>
 /**
  * _printf - a function that produces output according to a format.
  *
@@ -30,7 +32,7 @@ int _printf(const char *format, ...)
 		}
 		else if (format[i] == '%' && format[i + 1] == 'c')
 		{
-			char c = varg(words,int);
+			char c = va_arg(words,int);
 			putch(c);
 			i++;
 			counter++;
@@ -38,18 +40,18 @@ int _printf(const char *format, ...)
 		else if (format[i] == '%' && format[i + 1] == 's')
 		{
 			char *s = va_arg(words,char *);
-			putss(s);
+			counter += putss(s);
 			i++;
-			counter += (s_counter - 1);
+			
 		}
 		else if (format[i] == '%' && format[i + 1] == '%')
 		{
 			putch('%');
 			i++;
-			counter
+			counter++;
 		}
-		
 	}
+
 	va_end(words);
 	return (counter);
 }
