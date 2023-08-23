@@ -47,15 +47,15 @@ int _printf(const char *format, ...)
 		}
 		else if (format[i] == '%' && format[i + 1] == '%%')
 		{
-			// putch('%');
-			putch(va_arg(words, int));
+			s_counter = putss(va_arg(words, char *));
 			i++;
+			counter += (s_counter - 1);
 		}
 		else if (format[i] == '%' && (format[i + 1] == '!' || format[i + 1] == 'K'))
 		{
-			putch(va_arg(words, int));
+			s_counter = putss(va_arg(words, char *));
 			i++;
-		}
+			counter += (s_counter - 1);
 		counter++;
 	}
 	va_end(words);
