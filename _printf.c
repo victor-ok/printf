@@ -47,7 +47,6 @@ int _printf(const char *format, ...)
 		}
 		else if (format[i] == '%' && format[i + 1] == '%%')
 		{
-			// putch('%');
 			s_counter = putss(va_arg(words, char *));
 			i++;
 			counter += (s_counter - 1);
@@ -57,7 +56,6 @@ int _printf(const char *format, ...)
 			s_counter = putss(va_arg(words, char *));
 			i++;
 			counter += (s_counter - 1);
-		}
 		counter++;
 	}
 	va_end(words);
