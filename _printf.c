@@ -45,13 +45,16 @@ int _printf(const char *format, ...)
 			i++;
 			counter += (s_counter - 1);
 		}
-		else if (format[i] == '%' && format[i + 1] == '%')
+		else if (format[i] == '%' && format[i + 1] == '%%')
 		{
-			putch('%');
+			// putch('%');
+			putch(va_arg(words, int));
+			i++;
 		}
-		else if (format[i] == '%%')
+		else if (format[i] == '%' && (format[i + 1] == '!' || format[i + 1] == 'K'))
 		{
-			putch('%');
+			putch(va_arg(words, int));
+			i++;
 		}
 		counter++;
 	}
