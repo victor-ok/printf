@@ -14,12 +14,9 @@ int _printf(const char *format, ...)
 
 	va_list words;
 
-	if (format == NULL || (format[i] == '% ' && format[i + 1] == ' ' && !format[i + 2]))
+	if (format == NULL)
 
 		return (-1);
-
-	if (format[i] == '\0')
-		return (i);
 
 	va_start(words, format);
 
@@ -29,6 +26,10 @@ int _printf(const char *format, ...)
 		{
 			putch(format[i]);
 			s_counter++;
+		}
+		else if (format[i] == '\0')
+		{
+			return (i);
 		}
 		else if (format[i] == '%' && (format[i + 1] == '\0' || format[i + 1] == ' '))
 		{
@@ -44,6 +45,10 @@ int _printf(const char *format, ...)
 			s_counter = putss(va_arg(words, char *));
 			i++;
 			counter += (s_counter - 1);
+		}
+		else if (format[i] == '%' && format[i + 1] == '%')
+		{
+			putch('%');
 		}
 		counter++;
 	}
