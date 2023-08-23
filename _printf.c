@@ -49,6 +49,10 @@ int _printf(const char *format, ...)
 		{
 			putch('%');
 		}
+		else if (format[i] == '%%')
+		{
+			putch('%');
+		}
 		counter++;
 	}
 	va_end(words);
