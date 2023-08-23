@@ -56,6 +56,7 @@ int _printf(const char *format, ...)
 			s_counter = putss(va_arg(words, char *));
 			i++;
 			counter += (s_counter - 1);
+		}
 		counter++;
 	}
 	va_end(words);
