@@ -42,7 +42,7 @@ int print_number(int num)
 
 /**
  * print_binary - prints a binary number
- * @num: number to print
+ * @n: number to print
  * Return: number to count
  */
 int print_binary(unsigned int n)
