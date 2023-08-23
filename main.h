@@ -5,6 +5,9 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+
+#define NULL ((void *)0)
+
 /**
  * printf func
 */
